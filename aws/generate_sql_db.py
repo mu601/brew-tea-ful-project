@@ -1,11 +1,7 @@
-'''
-As a developer 
-I want to automate the creation of a database schema
-So that I don't have to set it up manually.
-'''
 from connect_to_db import *
 
 def create_db_tables(connection, cursor) -> True or False:
+    print('create_db_tables started')
     try: 
         # print('...creating drinks')
         # cursor.execute("""
@@ -28,7 +24,7 @@ def create_db_tables(connection, cursor) -> True or False:
         print('...creating location')
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS location (
-            location_id SERIAL PRIMARY KEY,
+            location_id INT IDENTITY(1, 1) PRIMARY KEY,
             location_name VARCHAR(250) NOT NULL UNIQUE
         );
         """)
@@ -36,7 +32,7 @@ def create_db_tables(connection, cursor) -> True or False:
         print('...creating customers')
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS customers (
-            customer_id SERIAL PRIMARY KEY,
+            customer_id INT IDENTITY(1, 1) PRIMARY KEY,
             customer_name VARCHAR(250) NOT NULL
         );
         """)
@@ -44,7 +40,7 @@ def create_db_tables(connection, cursor) -> True or False:
         print('...creating customer_transactions')
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS customer_transactions (
-            transaction_id SERIAL PRIMARY KEY,
+            transaction_id INT IDENTITY(1, 1) PRIMARY KEY,
             order_date TIMESTAMP NOT NULL,
             customer_id INT NOT NULL,
             payment_method VARCHAR(10) NOT NULL,
@@ -58,7 +54,7 @@ def create_db_tables(connection, cursor) -> True or False:
         print('...creating transaction_items')
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS transaction_items (
-            transaction_items_id SERIAL PRIMARY KEY,
+            transaction_items_id INT IDENTITY(1, 1) PRIMARY KEY,
             transaction_id INT NOT NULL,
             order_items VARCHAR(250)
         );
@@ -71,13 +67,9 @@ def create_db_tables(connection, cursor) -> True or False:
     
         connection.commit()
         print('...committed')
-        cursor.close()
-        print('Database tables successfully created.')
+        print('create_db_tables successfull')
         return True
     except Exception as ex:
-        print(f'Failed to generate table/s:\n{ex}')
+        print(f'create_db_tables failed to generate table/s:\n{ex}')
         return False
         
-if __name__ == "__main__":
-    con, cur = open_sql_database_connection_and_cursor()
-    create_db_tables(con, cur)

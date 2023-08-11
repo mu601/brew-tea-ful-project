@@ -1,23 +1,25 @@
+import os
 import psycopg2 as psy
-import boto3
-import json
+from dotenv import load_dotenv
 
-ssm_client = boto3.client('ssm')
-parameter_details = ssm_client.get_parameter(Name='brew-tea-full-redshift-settings')
-redshift_details = json.loads(parameter_details['Parameter']['Value'])
+load_dotenv("../utils/.env")
+HOST = os.environ.get("postgres_host")
+USER = os.environ.get("postgres_user")
+PASSWORD = os.environ.get("postgres_pass")
+DB_NAME = os.environ.get("postgres_db")
 
-HOST = redshift_details['host']
-USER = redshift_details['user']
-PASSWORD = redshift_details['password']
-DB_NAME = redshift_details['database-name']
-PORT = redshift_details['port']
+db_connection = None
 
-def open_sql_database_connection_and_cursor():
+def open_sql_database_connection_and_cursor() -> db_connection and db_connection.cursor():
     try:    
-        print('open_sql_database_connection_and_cursor - new connection starting...')
-        db_connection = psy.connect(host=HOST, database=DB_NAME,
-                                            user=USER, password=PASSWORD, port=PORT)
+        global db_connection
+        if db_connection:
+            print('Connection already running.')
+        else:
+            print('New connection starting...')
+            db_connection = psy.connect(host=HOST, database=DB_NAME,
+                                             user=USER, password=PASSWORD)
         cursor = db_connection.cursor()
         return db_connection, cursor
     except ConnectionError as e:
-        print(f'open_sql_database_connection_and_cursor - failed to open connection:\n{e}')
+        print(f'Failed to open connection:\n{e}')
