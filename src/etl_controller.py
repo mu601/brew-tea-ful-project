@@ -1,8 +1,8 @@
 from connect_to_db import *
 from generate_sql_db import *
 from load_clean_data_into_db import *
-from transform_data_lamda import *
-from extract_data_lamda import *
+from transform_data_lambda import *
+from extract_data_lambda import *
 
 if __name__ == "__main__":
    

@@ -1,5 +1,5 @@
-from extract_data_lamda import read_brew_csv
-from transform_data_lamda import transformed_data
+from extract_data_lambda import read_brew_csv
+from transform_data_lambda import transformed_data
 
 def test_read_brew_csv_correct_output(tmpdir):
     # Arrange

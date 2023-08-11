@@ -1,4 +1,4 @@
-from aws.format_date_lamda import format_date_time
+from aws.format_date_lambda import format_date_time
 
 def test_format_date_time():
 
