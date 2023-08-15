@@ -90,4 +90,38 @@ pip install -r requirements.txt
 ```
 <br />
 
+_______________________________________________________________________________________________________________________
+
+# ETL pipline
+
+![image](https://github.com/mu601/brew-tea-ful-project/assets/127961097/bac89ff4-9bc0-4499-8eaf-9cd913c7c0b4)
+
+_______________________________________________________________________________________________________________________
+
+# Result
+
+![image](https://github.com/mu601/brew-tea-ful-project/assets/127961097/557995e8-a0bc-4ae1-89cf-0159c2913850)
+
+![image](https://github.com/mu601/brew-tea-ful-project/assets/127961097/284562a4-5e7b-49b9-9ebc-11250bdd6633)
+
+![image](https://github.com/mu601/brew-tea-ful-project/assets/127961097/bd46d06f-1785-4168-9780-0c488b0d22c0)
+
+![image](https://github.com/mu601/brew-tea-ful-project/assets/127961097/5b7a3119-e085-4f03-83b7-66a753f78729)
+
+![image](https://github.com/mu601/brew-tea-ful-project/assets/127961097/b9d9eae9-e574-4e01-898f-e46584b3f373)
+
+![image](https://github.com/mu601/brew-tea-ful-project/assets/127961097/cff6cc53-627b-4c3e-92c7-b6c13f0d647a)
+
+![image](https://github.com/mu601/brew-tea-ful-project/assets/127961097/1a0c63cd-ae55-4c03-bfa4-099f5814bcc3)
+
+
+
+
+
+
+
+
+
+
+
 
