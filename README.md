@@ -94,6 +94,8 @@ ________________________________________________________________________________
 
 # ETL pipline
 
+When csv files are uploaded to the S3 bucket, the lambda is triggered. The lambda goes on to process the files then inserts the data onto the Redshift database. As soon as data in inserted to the database, the Grafana dashboard is updated.
+
 ![image](https://github.com/mu601/brew-tea-ful-project/assets/127961097/bac89ff4-9bc0-4499-8eaf-9cd913c7c0b4)
 
 _______________________________________________________________________________________________________________________
